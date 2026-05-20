@@ -1,0 +1,18 @@
+import { getDefaultConfig } from '@rainbow-me/rainbowkit'
+import { http } from 'wagmi'
+import { mainnet, base, polygon, arbitrum, optimism, bsc } from 'wagmi/chains'
+
+export const wagmiConfig = getDefaultConfig({
+  appName: 'DexPulse',
+  projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID ?? 'dexpulse_demo',
+  chains: [mainnet, base, arbitrum, polygon, optimism, bsc],
+  transports: {
+    [mainnet.id]: http(),
+    [base.id]: http(),
+    [arbitrum.id]: http(),
+    [polygon.id]: http(),
+    [optimism.id]: http(),
+    [bsc.id]: http(),
+  },
+  ssr: true,
+})
