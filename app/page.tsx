@@ -94,7 +94,7 @@ async function GainerLosers() {
             <Link key={p.pairAddress} href={`/token/${p.chainId}/${p.baseToken.address}`}
               className="flex items-center gap-2 group">
               {p.info?.imageUrl
-                ? <img src={p.info.imageUrl} alt="" className="w-7 h-7 rounded-full shrink-0 bg-[#111827] object-cover" />
+                ? <img src={p.info.imageUrl} alt={p.baseToken.symbol} className="w-7 h-7 rounded-full shrink-0 bg-[#111827] object-cover" />
                 : <div className="w-7 h-7 rounded-full shrink-0 flex items-center justify-center text-[10px] font-bold"
                     style={{ background: `${color}33`, color }}>{p.baseToken.symbol.slice(0, 2)}</div>
               }

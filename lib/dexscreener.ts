@@ -161,6 +161,32 @@ export function chainLabel(chainId: string): string {
   return CHAIN_LABELS[chainId] ?? chainId.charAt(0).toUpperCase() + chainId.slice(1)
 }
 
+const CHAIN_EXPLORERS: Record<string, string> = {
+  ethereum:  'https://etherscan.io',
+  bsc:       'https://bscscan.com',
+  polygon:   'https://polygonscan.com',
+  arbitrum:  'https://arbiscan.io',
+  base:      'https://basescan.org',
+  optimism:  'https://optimistic.etherscan.io',
+  avalanche: 'https://snowtrace.io',
+  solana:    'https://solscan.io',
+  sui:       'https://suiscan.xyz',
+  aptos:     'https://aptoscan.com',
+  blast:     'https://blastscan.io',
+  linea:     'https://lineascan.build',
+  scroll:    'https://scrollscan.com',
+  zksync:    'https://explorer.zksync.io',
+  mantle:    'https://explorer.mantle.xyz',
+}
+
+export function chainExplorerUrl(chainId: string, address: string): string {
+  const base = CHAIN_EXPLORERS[chainId] ?? 'https://etherscan.io'
+  const path = chainId === 'solana' || chainId === 'sui' || chainId === 'aptos'
+    ? 'account'
+    : 'address'
+  return `${base}/${path}/${address}`
+}
+
 export function timeAgo(ms: number): string {
   const diff = Date.now() - ms
   const s = Math.floor(diff / 1000)

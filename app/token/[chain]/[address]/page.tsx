@@ -1,6 +1,6 @@
 export const dynamic = 'force-dynamic'
 
-import { getTokenPairs, fmtUsd, fmtPrice, fmtPct, chainLabel, chainColor, shortAddr, timeAgo, type Pair } from '@/lib/dexscreener'
+import { getTokenPairs, fmtUsd, fmtPrice, fmtPct, chainLabel, chainColor, shortAddr, timeAgo, chainExplorerUrl, type Pair } from '@/lib/dexscreener'
 import { notFound } from 'next/navigation'
 import { ExternalLink, Globe, AtSign, TrendingUp, TrendingDown, ArrowLeft, Activity, Droplets, BarChart2, ShoppingCart } from 'lucide-react'
 import Link from 'next/link'
@@ -115,18 +115,21 @@ export default async function TokenPage({ params }: { params: Promise<{ chain: s
                 {best.pairCreatedAt && (
                   <span className="text-xs text-[#4b5563]">Created {timeAgo(best.pairCreatedAt)}</span>
                 )}
-                <a href={`https://etherscan.io/address/${address}`} target="_blank" rel="noopener noreferrer"
+                <a href={chainExplorerUrl(chain, address)} target="_blank" rel="noopener noreferrer"
+                  aria-label={`View on ${chainLabel(chain)} explorer`}
                   className="text-xs font-mono text-[#4b5563] hover:text-[#f97316] flex items-center gap-1 transition-colors">
                   {shortAddr(address)} <ExternalLink className="w-3 h-3" />
                 </a>
                 {socials.map(s => (
                   <a key={s.url} href={s.url} target="_blank" rel="noopener noreferrer"
+                    aria-label={s.type === 'twitter' ? 'Twitter / X' : 'Social link'}
                     className="text-[#4b5563] hover:text-[#f97316] transition-colors">
                     {s.type === 'twitter' ? <AtSign className="w-3.5 h-3.5" /> : <Globe className="w-3.5 h-3.5" />}
                   </a>
                 ))}
                 {websites.map(w => (
                   <a key={w.url} href={w.url} target="_blank" rel="noopener noreferrer"
+                    aria-label="Official website"
                     className="text-[#4b5563] hover:text-[#f97316] transition-colors">
                     <Globe className="w-3.5 h-3.5" />
                   </a>
