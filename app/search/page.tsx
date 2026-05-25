@@ -1,5 +1,11 @@
 export const dynamic = 'force-dynamic'
 
+import type { Metadata } from 'next'
+export const metadata: Metadata = {
+  title: 'Search Tokens',
+  description: 'Search for any token across all DEX chains — live pairs, price, volume and liquidity.',
+}
+
 import { searchPairs } from '@/lib/dexscreener'
 import { PairRow, PairTableHeader } from '@/components/PairCard'
 import { Search } from 'lucide-react'

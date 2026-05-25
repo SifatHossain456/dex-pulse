@@ -1,5 +1,11 @@
 export const dynamic = 'force-dynamic'
 
+import type { Metadata } from 'next'
+export const metadata: Metadata = {
+  title: 'Trending Tokens',
+  description: 'Top trending DEX tokens right now — live volume, liquidity, and price changes across every chain.',
+}
+
 import { searchPairs } from '@/lib/dexscreener'
 import { PairRow, PairTableHeader } from '@/components/PairCard'
 import { TrendingUp } from 'lucide-react'

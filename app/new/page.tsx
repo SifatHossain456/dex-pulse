@@ -1,5 +1,11 @@
 export const dynamic = 'force-dynamic'
 
+import type { Metadata } from 'next'
+export const metadata: Metadata = {
+  title: 'New Launches',
+  description: 'Freshly launched DEX tokens — discover new pairs before they go viral.',
+}
+
 import { getLatestPairs, fmtUsd, fmtPrice, fmtPct, chainLabel, chainColor, timeAgo } from '@/lib/dexscreener'
 import { Rocket, ExternalLink, TrendingUp, TrendingDown } from 'lucide-react'
 import Link from 'next/link'
