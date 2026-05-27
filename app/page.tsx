@@ -1,6 +1,6 @@
 export const dynamic = 'force-dynamic'
 
-import { getTopBoosted, getLatestProfiles, fmtUsd, fmtPrice, fmtPct, chainLabel, chainColor, type TokenBoost, type TokenProfile } from '@/lib/dexscreener'
+import { getTopBoosted, fmtUsd, fmtPrice, fmtPct, chainLabel, chainColor, type TokenBoost, type TokenProfile } from '@/lib/dexscreener'
 import { searchPairs } from '@/lib/dexscreener'
 import { PairRow, PairTableHeader } from '@/components/PairCard'
 import { Flame, Rocket, TrendingUp, TrendingDown, ExternalLink, Zap } from 'lucide-react'

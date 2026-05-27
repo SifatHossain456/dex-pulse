@@ -45,6 +45,7 @@ export default function Navbar() {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-[#4b5563]" />
           <input value={q} onChange={e => setQ(e.target.value)}
             placeholder="Token, symbol or address…"
+            aria-label="Search tokens"
             className="w-full bg-[#0d1117] border border-[#1a2535] rounded-lg pl-8 pr-3 py-1.5 text-sm focus:border-[#f97316] transition-colors" />
         </form>
 
